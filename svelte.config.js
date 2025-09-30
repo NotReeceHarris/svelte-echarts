@@ -5,6 +5,9 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 const config = {
   preprocess: vitePreprocess(),
   kit: {
+    prerender: {
+      handleHttpError: 'warn'
+    },
     adapter: adapter({
       fallback: undefined,
       precompress: false,
