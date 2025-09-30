@@ -1,16 +1,9 @@
 <script lang="ts">
-  import type {
-    init as baseInit,
-    EChartsType as BaseEchartsType,
-    EChartsOption,
-    SetOptionOpts,
-  } from 'echarts'
-  import type { init as coreInit, EChartsType as CoreEchartsType } from 'echarts/core'
-  import type { EChartsInitOpts } from 'echarts'
-  import { EVENT_NAMES, type EventHandlers } from '$lib/svelte-echarts/constants/events'
+  import { EVENT_NAMES } from '$lib/svelte-echarts/constants/events'
   import { onMount } from 'svelte'
   import type { HTMLAttributes } from 'svelte/elements'
   import type { ChartProps } from 'svelte-echarts/types'
+  import { debounce } from '../utils'
 
   let {
     init,
@@ -23,6 +16,11 @@
     replaceMerge,
     transition,
     chart = $bindable(),
+    // Accessibility props
+    'aria-label': ariaLabel = 'Interactive chart',
+    'aria-describedby': ariaDescribedby,
+    role = 'application',
+    tabindex = 0,
     ...restProps
   }: ChartProps = $props()
 
@@ -40,19 +38,24 @@
     chart = init(element, theme, initOptions)
 
     EVENT_NAMES.forEach((eventName) => {
-      // @ts-ignore
-      chart!.on(eventName, (event) => {
-        // @ts-ignore
-        restProps['on' + eventName]?.(event)
+      (chart as any).on(eventName, (event: any) => {
+        const handler = (restProps as any)[`on${eventName}`]
+        if (typeof handler === 'function') {
+          handler(event)
+        }
       })
     })
   }
 
   onMount(() => {
     initChart()
-    const resizeObserver = new ResizeObserver(() => {
+    
+    // Debounced resize handler for better performance
+    const debouncedResize = debounce(() => {
       chart?.resize()
-    })
+    }, 150)
+    
+    const resizeObserver = new ResizeObserver(debouncedResize)
     resizeObserver.observe(element)
 
     return () => {
@@ -71,9 +74,13 @@
   )
 </script>
 
-<!-- restProps is currently broken with typescript -->
+<!-- Chart container with accessibility support -->
 <div
   bind:this={element}
   style="width: 100%; height: 100%; {otherProps.style}"
+  aria-label={ariaLabel}
+  aria-describedby={ariaDescribedby}
+  {role}
+  {tabindex}
   {...otherProps}
 ></div>

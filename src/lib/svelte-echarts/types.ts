@@ -24,5 +24,10 @@ export type ChartProps = {
   replaceMerge?: SetOptionOpts['replaceMerge']
   transition?: SetOptionOpts['transition']
   chart?: BaseEchartsType | CoreEchartsType
+  // Accessibility props
+  'aria-label'?: string
+  'aria-describedby'?: string
+  role?: string
+  tabindex?: number
 } & EventHandlers &
   OmitHandlers<HTMLAttributes<HTMLDivElement>>
