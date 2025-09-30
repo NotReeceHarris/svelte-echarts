@@ -14,7 +14,7 @@
   <nav class="navbar">
     <div class="nav-container">
       <div class="nav-brand">
-        <a href="/" class="brand-link">
+        <a href="/svelte-echarts/" class="brand-link">
           <span class="brand-icon">📊</span>
           <span class="brand-text">svelte-echarts</span>
         </a>
@@ -31,10 +31,10 @@
       </button>
       
       <div class="nav-menu" class:active={showMobileMenu}>
-        <a href="/" class="nav-link" class:active={$page.url.pathname === '/'}>Home</a>
-        <a href="/examples/comprehensive" class="nav-link" class:active={$page.url.pathname.includes('comprehensive')}>Examples</a>
-        <a href="/examples/classic" class="nav-link" class:active={$page.url.pathname.includes('classic')}>Classic</a>
-        <a href="/examples/tree-shaking" class="nav-link" class:active={$page.url.pathname.includes('tree-shaking')}>Tree-shaking</a>
+        <a href="/svelte-echarts/" class="nav-link" class:active={$page.url.pathname === '/'}>Home</a>
+        <a href="/svelte-echarts/examples/comprehensive" class="nav-link" class:active={$page.url.pathname.includes('comprehensive')}>Examples</a>
+        <a href="/svelte-echarts/examples/classic" class="nav-link" class:active={$page.url.pathname.includes('classic')}>Classic</a>
+        <a href="/svelte-echarts/examples/tree-shaking" class="nav-link" class:active={$page.url.pathname.includes('tree-shaking')}>Tree-shaking</a>
         <a href="https://github.com/bherbruck/svelte-echarts" class="nav-link external" target="_blank">GitHub</a>
       </div>
     </div>

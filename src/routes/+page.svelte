@@ -227,7 +227,7 @@
             Built with TypeScript, performance optimizations, and comprehensive utilities.
           </p>
           <div class="hero-actions">
-            <a href="/examples/comprehensive" class="btn btn-primary">View Examples</a>
+            <a href="/svelte-echarts/examples/comprehensive" class="btn btn-primary">View Examples</a>
             <a href="https://github.com/bherbruck/svelte-echarts#readme" class="btn btn-secondary">Full Documentation</a>
           </div>
           <div class="features-preview">
