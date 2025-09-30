@@ -227,7 +227,7 @@
             Built with TypeScript, performance optimizations, and comprehensive utilities.
           </p>
           <div class="hero-actions">
-            <a href="#examples" class="btn btn-primary">View Examples</a>
+            <a href="/examples/comprehensive" class="btn btn-primary">View Examples</a>
             <a href="https://github.com/bherbruck/svelte-echarts#readme" class="btn btn-secondary">Full Documentation</a>
           </div>
           <div class="features-preview">
@@ -490,10 +490,6 @@
 <Chart {init} {options} />`}</code></pre>
       </div>
       
-      <div class="quickstart-actions">
-        <a href="/examples/comprehensive" class="btn btn-primary">View Full Examples</a>
-        <a href="https://github.com/bherbruck/svelte-echarts" class="btn btn-secondary" target="_blank">GitHub Repository</a>
-      </div>
     </div>
   </section>
 
@@ -523,7 +519,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2024 svelte-echarts. MIT License.</p>
+        <p>&copy; 2025 svelte-echarts. MIT License.</p>
       </div>
     </div>
   </footer>
